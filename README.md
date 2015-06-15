@@ -1,8 +1,8 @@
 # <a name="top"></a>must-sinon
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][travis-badge]][travis-url]
 [![Code Climate][gpa-badge]][codeclimate-url]
-[![Test Coverage][coverage-badge]][codeclimate-url]
+[![Test Coverage][coverage-badge]][codeclimate-url]å
 
 **must-sinon** adds [SinonJS][sinon-url] related matchers to [Must.js][must-url].
 
@@ -197,9 +197,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 [travis-badge]: https://travis-ci.org/JohnnyEstilles/must-sinon.svg?branch=master
 [travis-url]: https://travis-ci.org/JohnnyEstilles/must-sinon
 
-[codeclimate-url]: https://codeclimate.com/github/AgentiaSystems/must-sinon
-[gpa-badge]: https://codeclimate.com/github/AgentiaSystems/must-sinon/badges/gpa.svg
-[coverage-badge]: https://codeclimate.com/github/AgentiaSystems/must-sinon/badges/coverage.svg
+[codeclimate-url]: https://codeclimate.com/github/JohnnyEstilles/must-sinon
+[gpa-badge]: https://codeclimate.com/github/JohnnyEstilles/must-sinon/badges/gpa.svg
+[coverage-badge]: https://codeclimate.com/github/JohnnyEstilles/must-sinon/badges/coverage.svg
 
 [npm-badge]: https://badge.fury.io/js/must-sinon.svg
 [npm-url]: https://npmjs.org/package/must-sinon
