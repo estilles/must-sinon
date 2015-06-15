@@ -7,9 +7,9 @@ notifications:
   email:
     - johnny.estilles@agentia.asia
 
-#addons:
-# code_climate:
-#   repo_token: c2b4160e932efd3da151018e7f1a5ba452340ee160ed06e91d0cc0ae3f3e5c70
+addons:
+  code_climate:
+    repo_token: e090b1a7614cd2d41074b72737076622befc41ea65999f267fd4121078e8b8fd
 
 before_install:
   - npm install -g eslint
@@ -20,7 +20,7 @@ before_script:
 
 after_script:
   - npm run cover
-#  - codeclimate < ./coverage/lcov.info
+  - codeclimate < ./coverage/lcov.info
 
 branches:
   only:
