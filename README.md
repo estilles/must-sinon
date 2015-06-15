@@ -18,7 +18,7 @@
 
 must-sinon version | MustJS version | SinonJS version
 ------------------ | -------------- | ---------------
-`1.x.x` | `???` | `^1.15.x`
+`1.x.x` | `???` | `^1.15.0`
 
 [Back to Top](#top)
 
@@ -38,7 +38,7 @@ npm install --save-dev must-sinon
 ## Usage
 ```js
 var must = require('must');
-var mustPromise = require('must-promise');
+var mustSinon = require('must-sinon');
 mustSinon(must);
 ```
 
