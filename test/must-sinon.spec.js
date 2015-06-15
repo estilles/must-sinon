@@ -31,7 +31,7 @@ describe('must-sinon', function() {
         it('must fail if not spy', function() {
           (function() {
             this.invalid.must.be.a.spy();
-          }.bind(this)).must.throw(/be a sinon spy/);
+          }).bind(this).must.throw(/be a sinon spy/);
         });
 
       });
@@ -45,7 +45,7 @@ describe('must-sinon', function() {
         it('must fail if spy', function() {
           (function() {
             this.spy.must.not.be.a.spy();
-          }.bind(this)).must.throw(/not be a sinon spy/);
+          }).bind(this).must.throw(/not be a sinon spy/);
         });
 
       });
@@ -63,7 +63,7 @@ describe('must-sinon', function() {
         it('must fail if not stub', function() {
           (function() {
             this.invalid.must.be.a.stub();
-          }.bind(this)).must.throw(/be a sinon stub/);
+          }).bind(this).must.throw(/be a sinon stub/);
         });
 
       });
@@ -77,7 +77,7 @@ describe('must-sinon', function() {
         it('must fail if stub', function() {
           (function() {
             this.stub.must.not.be.a.stub();
-          }.bind(this)).must.throw(/not be a sinon stub/);
+          }).bind(this).must.throw(/not be a sinon stub/);
         });
 
       });
@@ -100,7 +100,7 @@ describe('must-sinon', function() {
         it('must fail if not called', function() {
           (function() {
             this.spy.must.have.been.called();
-          }.bind(this)).must.throw(/have been called/);
+          }).bind(this).must.throw(/have been called/);
         });
 
       });
@@ -115,7 +115,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.called();
-          }.bind(this)).must.throw(/not have been called/);
+          }).bind(this).must.throw(/not have been called/);
         });
 
       });
@@ -134,7 +134,7 @@ describe('must-sinon', function() {
         it('must fail if not called once', function() {
           (function() {
             this.spy.must.have.been.calledOnce();
-          }.bind(this)).must.throw(/have been called once/);
+          }).bind(this).must.throw(/have been called once/);
         });
 
       });
@@ -149,7 +149,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledOnce();
-          }.bind(this)).must.throw(/not have been called once/);
+          }).bind(this).must.throw(/not have been called once/);
         });
 
       });
@@ -169,7 +169,7 @@ describe('must-sinon', function() {
         it('must fail if not called twice', function() {
           (function() {
             this.spy.must.have.been.calledTwice();
-          }.bind(this)).must.throw(/have been called twice/);
+          }).bind(this).must.throw(/have been called twice/);
         });
 
       });
@@ -185,7 +185,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledTwice();
-          }.bind(this)).must.throw(/not have been called twice/);
+          }).bind(this).must.throw(/not have been called twice/);
         });
 
       });
@@ -206,7 +206,7 @@ describe('must-sinon', function() {
         it('must fail if not called thrice', function() {
           (function() {
             this.spy.must.have.been.calledThrice();
-          }.bind(this)).must.throw(/have been called thrice/);
+          }).bind(this).must.throw(/have been called thrice/);
         });
 
       });
@@ -223,7 +223,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledThrice();
-          }.bind(this)).must.throw(/not have been called thrice/);
+          }).bind(this).must.throw(/not have been called thrice/);
         });
 
       });
@@ -244,7 +244,7 @@ describe('must-sinon', function() {
         it('must fail if call count doesn\'t match', function() {
           (function() {
             this.spy.must.have.callCount(3);
-          }.bind(this)).must.throw(/have a call count of/);
+          }).bind(this).must.throw(/have a call count of/);
         });
 
       });
@@ -261,7 +261,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.callCount(3);
-          }.bind(this)).must.throw(/not have a call count of/);
+          }).bind(this).must.throw(/not have a call count of/);
         });
 
       });
@@ -287,7 +287,7 @@ describe('must-sinon', function() {
           this.spy(4, 5, 6);
           (function() {
             this.spy.must.have.been.calledWith(1, 2, 3);
-          }.bind(this)).must.throw(/have been called with/);
+          }).bind(this).must.throw(/have been called with/);
         });
 
       });
@@ -303,7 +303,7 @@ describe('must-sinon', function() {
           this.spy(1, 2, 3);
           (function() {
             this.spy.must.not.have.been.calledWith(1, 2, 3);
-          }.bind(this)).must.throw(/not have been called with/);
+          }).bind(this).must.throw(/not have been called with/);
         });
 
       });
@@ -323,7 +323,7 @@ describe('must-sinon', function() {
           this.spy(1, 2, 3, 4);
           (function() {
             this.spy.must.have.been.calledWithExactly(1, 2, 3);
-          }.bind(this)).must.throw(/have been called with exactly/);
+          }).bind(this).must.throw(/have been called with exactly/);
         });
 
       });
@@ -339,7 +339,7 @@ describe('must-sinon', function() {
           this.spy(1, 2, 3);
           (function() {
             this.spy.must.not.have.been.calledWithExactly(1, 2, 3);
-          }.bind(this)).must.throw(/not have been called with exactly/);
+          }).bind(this).must.throw(/not have been called with exactly/);
         });
 
       });
@@ -367,7 +367,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.have.been.calledBefore(otherSpy);
-          }.bind(this)).must.throw(/have been called before/);
+          }).bind(this).must.throw(/have been called before/);
         });
 
       });
@@ -387,7 +387,7 @@ describe('must-sinon', function() {
           otherSpy();
           (function() {
             this.spy.must.not.have.been.calledBefore(otherSpy);
-          }.bind(this)).must.throw(/not have been called before/);
+          }).bind(this).must.throw(/not have been called before/);
         });
 
       });
@@ -411,7 +411,7 @@ describe('must-sinon', function() {
           otherSpy();
           (function() {
             this.spy.must.have.been.calledAfter(otherSpy);
-          }.bind(this)).must.throw(/have been called after/);
+          }).bind(this).must.throw(/have been called after/);
         });
 
       });
@@ -431,7 +431,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledAfter(otherSpy);
-          }.bind(this)).must.throw(/not have been called after/);
+          }).bind(this).must.throw(/not have been called after/);
         });
 
       });
@@ -454,7 +454,7 @@ describe('must-sinon', function() {
         it('must fail if not called on target object', function() {
           (function() {
             this.spy.must.have.been.calledOn(this);
-          }.bind(this)).must.throw(/have been called on/);
+          }).bind(this).must.throw(/have been called on/);
         });
 
       });
@@ -469,7 +469,7 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledOn(this);
-          }.bind(this)).must.throw(/not have been called on/);
+          }).bind(this).must.throw(/not have been called on/);
         });
 
       });
@@ -489,7 +489,7 @@ describe('must-sinon', function() {
         it('must fail if not called with "new"', function() {
           (function() {
             this.spy.must.have.been.calledWithNew();
-          }.bind(this)).must.throw(/have been called with "new"/);
+          }).bind(this).must.throw(/have been called with "new"/);
         });
 
       });
@@ -505,7 +505,7 @@ describe('must-sinon', function() {
           this.instance = new Spy();
           (function() {
             this.spy.must.not.have.been.calledWithNew();
-          }.bind(this)).must.throw(/not have been called with "new"/);
+          }).bind(this).must.throw(/not have been called with "new"/);
         });
 
       });
@@ -531,7 +531,7 @@ describe('must-sinon', function() {
           this.stub();
           (function() {
             this.stub.must.have.returned('OK');
-          }.bind(this)).must.throw(/have returned/);
+          }).bind(this).must.throw(/have returned/);
         });
 
       });
@@ -549,7 +549,7 @@ describe('must-sinon', function() {
           this.stub();
           (function() {
             this.stub.must.not.have.returned('OK');
-          }.bind(this)).must.throw(/not have returned/);
+          }).bind(this).must.throw(/not have returned/);
         });
 
       });
