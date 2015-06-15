@@ -1,5 +1,8 @@
 # <a name="top"></a>must-sinon
-[![Build Status][travis-badge]][travis-url]
+
+[![Build Status][travis-image]][travis-url]
+[![Code Climate][gpa-badge]][codeclimate-url]
+[![Test Coverage][coverage-badge]][codeclimate-url]
 
 **must-sinon** adds [SinonJS][sinon-url] related matchers to [Must.js][must-url].
 
@@ -171,7 +174,7 @@ npm test
 ## License
 **must-sinon** is free and open source under the AGPL-3.0 License.
 
-Copyright (c) 2015 [Johnny Estilles](https://github.com/JohnnyEstilles), [http://www.agentia.asia][agentia-url]
+Copyright (c) 2015 [Johnny Estilles][jme-url], [http://www.agentia.asia][agentia-url]
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -188,8 +191,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 [Back to Top](#top)
 
+[jme-url]: https://github.com/JohnnyEstilles
+[agentia-url]: http://www.agentia.asia
+
 [travis-badge]: https://travis-ci.org/JohnnyEstilles/must-sinon.svg?branch=master
 [travis-url]: https://travis-ci.org/JohnnyEstilles/must-sinon
+
+[codeclimate-url]: https://codeclimate.com/github/AgentiaSystems/must-sinon
+[gpa-badge]: https://codeclimate.com/github/AgentiaSystems/must-sinon/badges/gpa.svg
+[coverage-badge]: https://codeclimate.com/github/AgentiaSystems/must-sinon/badges/coverage.svg
 
 [npm-badge]: https://badge.fury.io/js/must-sinon.svg
 [npm-url]: https://npmjs.org/package/must-sinon
