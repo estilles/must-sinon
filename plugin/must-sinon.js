@@ -1,4 +1,5 @@
-'use strict';
+/*eslint strict:0*/
+//'use strict'
 
 var check = require('./check');
 
