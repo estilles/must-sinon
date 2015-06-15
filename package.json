@@ -7,7 +7,7 @@
     "test": "node_modules/mocha/bin/mocha --reporter dot",
     "spec": "node_modules/mocha/bin/mocha --reporter spec",
     "cover": "istanbul cover node_modules/.bin/_mocha -- --reporter dot",
-    "lint": "eslint index.js lib test"
+    "lint": "eslint index.js plugin test"
   },
   "pre-commit": [
     "lint",
