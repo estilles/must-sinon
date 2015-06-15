@@ -1,0 +1,45 @@
+{
+  "name": "must-sinon",
+  "version": "0.0.0",
+  "description": "Sinon assertions for js-must",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --reporter dot",
+    "spec": "node_modules/mocha/bin/mocha --reporter spec",
+    "cover": "istanbul cover node_modules/.bin/_mocha -- --reporter dot",
+    "lint": "eslint index.js lib test"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnnyEstilles/must-sinon.git"
+  },
+  "keywords": [
+    "must",
+    "assertions",
+    "plugin",
+    "must-plugin",
+    "sinon"
+  ],
+  "author": "Johnny Estilles <johnny.estilles@agentia.asia> (http://www.agentia.asia)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JohnnyEstilles/must-sinon/issues"
+  },
+  "homepage": "https://github.com/JohnnyEstilles/must-sinon",
+  "devDependencies": {
+    "eslint": "^0.21.2",
+    "istanbul": "^0.3.15",
+    "mocha": "^2.2.5",
+    "must": "moll/js-must",
+    "pre-commit": "^1.0.10",
+    "sinon": "^1.15.3"
+  },
+  "dependencies": {
+    "kindof": "^2.0.0",
+    "oolong": "^1.11.0"
+  }
+}

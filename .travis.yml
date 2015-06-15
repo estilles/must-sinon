@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.12"
+
+notifications:
+  email:
+    - johnny.estilles@agentia.asia
+
+#addons:
+# code_climate:
+#   repo_token: c2b4160e932efd3da151018e7f1a5ba452340ee160ed06e91d0cc0ae3f3e5c70
+
+before_install:
+  - npm install -g eslint
+  - npm install -g codeclimate-test-reporter
+
+before_script:
+  - npm run lint
+
+after_script:
+  - npm run cover
+#  - codeclimate < ./coverage/lcov.info
+
+branches:
+  only:
+    - master
