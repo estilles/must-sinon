@@ -2,7 +2,7 @@
 
 [![Build Status][travis-badge]][travis-url]
 [![Code Climate][gpa-badge]][codeclimate-url]
-[![Test Coverage][coverage-badge]][codeclimate-url]å
+[![Test Coverage][coverage-badge]][codeclimate-url]
 
 **must-sinon** adds [SinonJS][sinon-url] related matchers to [Must.js][must-url].
 
