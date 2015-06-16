@@ -16,8 +16,8 @@
 <a name="requirements"></a>
 ## Requirements
 
-must-sinon version | MustJS version | SinonJS version
------------------- | -------------- | ---------------
+must-sinon | Requires<br>MustJS | Requires<br>SinonJS
+--- | --- | ---
 `1.x.x` | `???` | `^1.15.0`
 
 [Back to Top](#top)
@@ -26,7 +26,7 @@ must-sinon version | MustJS version | SinonJS version
 ## Installation
 [![npm][npm-badge]][npm-url]
 
-**must-sinon** is available on [npm][npm-url].
+**must-sinon** will be available soon on [npm][npm-url].
 
 ```js
 npm install --save-dev must-sinon
@@ -47,105 +47,27 @@ mustSinon(must);
 <a name="matchers"></a>
 ## Matchers
 
-### #spy
-```js
-var spy = sinon.spy();
-spy.must.be.a.spy();
-```
+Matcher | Usage
+--- | ---
+spy | `spy.must.be.a.spy()`
+stub | `stub.must.be.a.stub()`
+called | `spy.must.have.been.called()`
+calledOnce | `spy.must.have.been.calledOnce()`
+calledTwice | `spy.must.have.been.calledTwice()`
+calledThrice | `spy.must.have.been.calledThrice()`
+calledCount | `spy.must.have.calledCount(3)`
+calledBefore | `spy1.must.have.been.calledBefore(spy2)`
+calledAfter | `spy2.must.have.been.calledBefore(spy1)`
+calledOn | `instance.spy.must.have.been.calledOn(instance)`
+calledWith | `spy.must.have.been.calledWith(1, 2)`
+calledWithExactly | `spy.must.have.been.calledWithExactly(1, 2, 3)`
+calledWithNew | `Constructor.must.have.been.calledWithNew()`
 
-### #stub
-```js
-var stub = sinon.stub();
-stub.must.be.a.stub();
-```
-
-### #called
-```js
-var spy = sinon.spy();
-spy();
-spy.must.have.been.called();
-```
-
-### #calledOnce
-```js
-var spy = sinon.spy();
-spy();
-spy.must.have.been.calledOnce();
-```
-
-### #calledTwice
-```js
-var spy = sinon.spy();
-spy();
-spy();
-spy.must.have.been.calledTwice();
-```
-
-### #calledThrice
-```js
-var spy = sinon.spy();
-spy();
-spy();
-spy();
-spy.must.have.been.calledThrice();
-```
-
-### #calledCount
-```js
-var spy = sinon.spy();
-spy();
-spy();
-spy();
-spy.must.have.calledCount(3);
-```
-
-### #calledBefore
-```js
-var spy1 = sinon.spy();
-var spy2 = sinon.spy();
-spy1();
-spy2();
-spy1.must.have.been.calledBefore(spy2);
-```
-
-### #calledAfter
-```js
-var spy1 = sinon.spy();
-var spy2 = sinon.spy();
-spy1();
-spy2();
-spy2.must.have.been.calledBefore(spy1);
-```
-
-### #calledOn
-```js
-var instance = {
-  spy: sinon.spy()
-};
-instance.spy.must.have.been.calledOn(instance);
-```
-
-### #calledWith
-```js
-var spy = sinon.spy();
-spy(1, 2, 3);
-spy.must.have.been.calledWith(1);
-spy.must.have.been.calledWith(1, 2);
-spy.must.have.been.calledWith(1, 2, 3);
-```
-
-### #calledWithExactly
-```js
-var spy = sinon.spy();
-spy(1, 2, 3);
-spy.must.have.been.calledWithExactly(1, 2, 3);
-```
-
-### #calledWithNew
+### #
 ```js
 var Spy = sinon.spy();
 var spy = new Spy();
-Spy.must.have.been.calledWithNew();
+;
 ```
 
 ### #returned
