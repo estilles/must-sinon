@@ -62,20 +62,7 @@ calledOn | `instance.spy.must.have.been.calledOn(instance)`
 calledWith | `spy.must.have.been.calledWith(1, 2)`
 calledWithExactly | `spy.must.have.been.calledWithExactly(1, 2, 3)`
 calledWithNew | `Constructor.must.have.been.calledWithNew()`
-
-### #
-```js
-var Spy = sinon.spy();
-var spy = new Spy();
-;
-```
-
-### #returned
-```js
-var stub = sinon.stub();
-stub.returns('OK');
-stub.must.have.returned('OK');
-```
+returned | `stub.must.have.returned('OK')`
 
 [Back to Top](#top)
 
