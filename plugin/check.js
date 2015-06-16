@@ -1,11 +1,27 @@
 'use strict';
 
-var kindof = require('kindof');
+/**
+ * Checks if {target} is a Sinon spy
+ * @param {any} target - target instance to check
+ * @returns {boolan} - true if {target} is a Sinon spy
+ * @access private
+ */
+function isSpy(target) {
+  return typeof target === 'function' && /spy#.*/.test(target.id);
+}
 
-exports.isSpy = function isSpy(fn) {
-  return kindof(fn) === 'function' && fn.displayName === 'spy';
-};
+/**
+ * Checks if {target} is a Sinon stub
+ * @param {any} target - target instance to check
+ * @returns {boolan} - true if {target} is a Sinon stub
+ * @access private
+ */
+function isStub(target) {
+  return isSpy(target) &&
+    typeof target.func === 'function' && /stub#.*/.test(target.func.id);
+}
 
-exports.isStub = function isStub(fn) {
-  return kindof(fn) === 'function' && fn.displayName === 'stub';
+module.exports = {
+  isSpy: isSpy,
+  isStub: isStub
 };

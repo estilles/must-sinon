@@ -28,6 +28,10 @@ describe('must-sinon', function() {
           this.spy.must.be.a.spy();
         });
 
+        it('must pass if stub (stubs are also spies)', function() {
+          this.stub.must.be.a.spy();
+        });
+
         it('must fail if not spy', function() {
           (function() {
             this.invalid.must.be.a.spy();
@@ -48,6 +52,12 @@ describe('must-sinon', function() {
           }).bind(this).must.throw(/not be a sinon spy/);
         });
 
+        it('must fail if stub (stubs are also spies)', function() {
+          (function() {
+            this.stub.must.not.be.a.spy();
+          }).bind(this).must.throw(/not be a sinon spy/);
+        });
+
       });
 
     });
@@ -58,6 +68,12 @@ describe('must-sinon', function() {
 
         it('must pass if stub', function() {
           this.stub.must.be.a.stub();
+        });
+
+        it('must fail if spy (spies are not stubs)', function() {
+          (function() {
+            this.spy.must.be.a.stub();
+          }).bind(this).must.throw(/be a sinon stub/);
         });
 
         it('must fail if not stub', function() {
@@ -72,6 +88,10 @@ describe('must-sinon', function() {
 
         it('must pass if not stub', function() {
           this.invalid.must.not.be.a.stub();
+        });
+
+        it('must pass if spy (spies are not stubs)', function() {
+          this.spy.must.not.be.a.stub();
         });
 
         it('must fail if stub', function() {
