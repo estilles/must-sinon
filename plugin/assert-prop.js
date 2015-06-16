@@ -3,7 +3,7 @@
 
 function assertProp(target, name, message) {
   target.prototype[name] = function() {
-    this.assert(this.actual[name], message);
+    this.assert(this.actual[name], message, {expected: true});
   };
 }
 
