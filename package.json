@@ -39,7 +39,6 @@
     "sinon": "^1.15.3"
   },
   "dependencies": {
-    "kindof": "^2.0.0",
     "oolong": "^1.11.0"
   }
 }
