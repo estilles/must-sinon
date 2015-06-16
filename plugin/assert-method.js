@@ -6,7 +6,7 @@ var format = require('util').format;
 function assertMethod(target, name, template) {
   target.prototype[name] = function() {
     var args = Array.prototype.slice.call(arguments);
-    var message = format.apply(null, [template].concat(args));
+    var message = format.apply(null, [template].concat(args.join()));
     this.assert(this.actual[name].apply(this.actual, args), message);
   };
 }
