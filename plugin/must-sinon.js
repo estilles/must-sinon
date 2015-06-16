@@ -3,7 +3,7 @@
 
 var check = require('./check');
 
-var passthrough = require('./passthrough');
+var definePassthrough = require('./define-passthrough');
 
 var assertProp = require('./assert-prop');
 var assertPropValue = require('./assert-prop-value');
@@ -35,7 +35,7 @@ function mustSinon(Must) {
     this.assert(check.isStub(this.actual), 'be a sinon stub');
   };
 
-  passthrough(Must, 'been');
+  definePassthrough(Must, 'been');
 
   /**
   * Asserts if {actual} was called at least once
