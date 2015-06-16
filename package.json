@@ -34,7 +34,7 @@
     "eslint": "^0.23.0",
     "istanbul": "^0.3.15",
     "mocha": "^2.2.5",
-    "must": "git://github.com/moll/js-must",
+    "must": "^0.13.0-beta2",
     "pre-commit": "^1.0.10",
     "sinon": "^1.15.3"
   },
