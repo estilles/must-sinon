@@ -1,7 +1,6 @@
 'use strict';
 
-var oo = require('oolong');
-var defineGetter = oo.defineGetter;
+var defineGetter = require('oolong').defineGetter;
 
 function definePassthrough(Must, name) {
   defineGetter(Must.prototype, name, function() {
