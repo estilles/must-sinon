@@ -496,6 +496,46 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#alwaysCalledOn', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called on target object', function() {
+          this.spy();
+          this.spy.must.have.been.alwaysCalledOn(this);
+        });
+
+        it('must fail if not aways called on target object', function() {
+          var other = {};
+          this.spy();
+          this.spy.call(other);
+          (function() {
+            this.spy.must.have.been.alwaysCalledOn(this);
+          }).bind(this).must.throw(/have always been called on/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not called on target object', function() {
+          var other = {};
+          this.spy();
+          this.spy.call(other);
+          this.spy.must.not.have.been.alwaysCalledOn(this);
+        });
+
+        it('must fail if called on target object', function() {
+          this.spy();
+          (function() {
+            this.spy.must.not.have.been.alwaysCalledOn(this);
+          }).bind(this).must.throw(/not have always been called on/);
+        });
+
+      });
+
+    });
+
     describe('#calledWithNew', function() {
 
       describe('positive assertion', function() {
