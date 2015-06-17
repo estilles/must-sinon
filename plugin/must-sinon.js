@@ -128,6 +128,7 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'returned', 'have returned %s');
+  assertMethod(Must, 'alwaysReturned', 'have always returned %s');
 }
 
 module.exports = mustSinon;

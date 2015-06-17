@@ -616,6 +616,54 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#alwaysReturned', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always returns specified value', function() {
+          this.stub.onCall(0).returns('OK');
+          this.stub.onCall(1).returns('OK');
+          this.stub();
+          this.stub();
+          this.stub.must.have.alwaysReturned('OK');
+        });
+
+        it('must fail if doesn\'t always return specified value', function() {
+          this.stub.onCall(0).returns('OK');
+          this.stub.onCall(1).returns('BAD');
+          this.stub();
+          this.stub();
+          (function() {
+            this.stub.must.have.alwaysReturned('OK');
+          }).bind(this).must.throw(/have always returned/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if doesn\'t always return specified value', function() {
+          this.stub.onCall(0).returns('OK');
+          this.stub.onCall(1).returns('BAD');
+          this.stub();
+          this.stub();
+          this.stub.must.not.have.alwaysReturned('OK');
+        });
+
+        it('must fail if always returns specified value', function() {
+          this.stub.onCall(0).returns('OK');
+          this.stub.onCall(1).returns('OK');
+          this.stub();
+          this.stub();
+          (function() {
+            this.stub.must.not.have.alwaysReturned('OK');
+          }).bind(this).must.throw(/not have always returned/);
+        });
+
+      });
+
+    });
+
   });
 
 });
