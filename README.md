@@ -1,4 +1,4 @@
-# <a name="top"></a>must-sinon
+# <a name="top"></a>![must-sinon logo][logo-url]
 
 [![Build Status][travis-badge]][travis-url]
 [![Code Climate][gpa-badge]][codeclimate-url]
@@ -15,10 +15,11 @@
 
 <a name="requirements"></a>
 ## Requirements
+The current version of **must-sinon** requires Must.js `0.13.0` and SinonJS `1.15.0`.
 
-must-sinon | Requires<br>MustJS | Requires<br>SinonJS
+must-sinon | Requires<br>Must.js | Requires<br>SinonJS
 --- | --- | ---
-`1.x.x` | `???` | `^1.15.0`
+`1.x.x` | `^0.13.0` | `^1.15.0`
 
 [Back to Top](#top)
 
@@ -113,5 +114,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 [npm-badge]: https://badge.fury.io/js/must-sinon.svg
 [npm-url]: https://npmjs.org/package/must-sinon
 
+[logo-url]: media/logo-must-sinon.jpg
 [must-url]: https://github.com/moll/js-must
 [sinon-url]: http://sinonjs.org
