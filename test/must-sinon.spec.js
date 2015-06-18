@@ -330,6 +330,47 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#alwaysCalledWith', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy.must.have.been.alwaysCalledWith(1, 2, 3);
+        });
+
+        it('must fail if not always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(4, 5, 6);
+          (function() {
+            this.spy.must.have.been.alwaysCalledWith(1, 2, 3);
+          }).bind(this).must.throw(/have always been called with/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(4, 5, 6);
+          this.spy.must.not.have.been.alwaysCalledWith(1, 2, 3);
+        });
+
+        it('must fail if always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.not.have.been.alwaysCalledWith(1, 2, 3);
+          }).bind(this).must.throw(/not have always been called with/);
+        });
+
+      });
+
+    });
+
     describe('#calledWithExactly', function() {
 
       describe('positive assertion', function() {
