@@ -114,6 +114,8 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledWithExactly', 'have been called with exactly %s');
+  assertMethod(Must, 'alwaysCalledWithExactly',
+    'have always been called with exactly %s');
 
   /**
   * Asserts if {actual} was called exactly with "new"

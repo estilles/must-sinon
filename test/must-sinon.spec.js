@@ -407,6 +407,46 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#alwaysCalledWithExactly', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy.must.have.been.alwaysCalledWithExactly(1, 2, 3);
+        });
+
+        it('must fail if not always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3, 4);
+          (function() {
+            this.spy.must.have.been.alwaysCalledWithExactly(1, 2, 3);
+          }).bind(this).must.throw(/have always been called with exactly/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3, 4);
+          this.spy.must.not.have.been.alwaysCalledWithExactly(1, 2, 3);
+        });
+
+        it('must fail if always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.not.have.been.alwaysCalledWithExactly(1, 2, 3);
+          }).bind(this).must.throw(/not have always been called with exactly/);
+        });
+
+      });
+
+    });
+
   });
 
   describe('detect call order', function() {
