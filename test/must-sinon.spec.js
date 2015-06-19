@@ -653,6 +653,50 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#alwaysCalledWithNew', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called on with "new"', function() {
+          var Spy = this.spy;
+          this.instance = new Spy();
+          this.instance = new Spy();
+          this.spy.must.have.been.alwaysCalledWithNew();
+        });
+
+        it('must fail if not always called with "new"', function() {
+          var Spy = this.spy;
+          this.spy();
+          this.instance = new Spy();
+          (function() {
+            this.spy.must.have.been.alwaysCalledWithNew();
+          }).bind(this).must.throw(/have always been called with "new"/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+        it('must pass if not always called on "new"', function() {
+          var Spy = this.spy;
+          this.spy();
+          this.instance = new Spy();
+
+          this.spy.must.not.have.been.alwaysCalledWithNew();
+        });
+
+        it('must fail if always called on "new"', function() {
+          var Spy = this.spy;
+          this.instance = new Spy();
+          this.instance = new Spy();
+          (function() {
+            this.spy.must.not.have.been.alwaysCalledWithNew();
+          }).bind(this).must.throw(/not have always been called with "new"/);
+        });
+
+      });
+
+    });
+
   });
 
   describe('detect returned value', function() {

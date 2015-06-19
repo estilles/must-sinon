@@ -123,6 +123,8 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledWithNew', 'have been called with "new"');
+  assertMethod(Must, 'alwaysCalledWithNew',
+    'have always been called with "new"');
 
   /**
   * Asserts if {actual} returned {value}
