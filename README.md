@@ -60,10 +60,15 @@ calledCount | `spy.must.have.calledCount(3)`
 calledBefore | `spy1.must.have.been.calledBefore(spy2)`
 calledAfter | `spy2.must.have.been.calledBefore(spy1)`
 calledOn | `instance.spy.must.have.been.calledOn(instance)`
+alwaysCalledOn | `instance.spy.must.have.been.alwaysCalledOn(instance)`
 calledWith | `spy.must.have.been.calledWith(1, 2)`
+alwaysCalledWith | `spy.must.have.been.alwaysCalledWith(1, 2)`
 calledWithExactly | `spy.must.have.been.calledWithExactly(1, 2, 3)`
+alwaysCalledWithExactly | `spy.must.have.been.alwaysCalledWithExactly(1, 2, 3)`
 calledWithNew | `Constructor.must.have.been.calledWithNew()`
+alwaysCalledWithNew | `Constructor.must.have.been.alwaysCalledWithNew()`
 returned | `stub.must.have.returned('OK')`
+alwaysReturned | `stub.must.have.alwaysReturned('OK')`
 
 [Back to Top](#top)
 
