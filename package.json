@@ -39,7 +39,7 @@
     "sinon": "^1.15.3"
   },
   "dependencies": {
-    "oolong": "^1.11.0"
+    "oolong": "^1.12.0"
   },
   "peerDependencies": {
     "must": "^0.13.0-beta2",
