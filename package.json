@@ -31,12 +31,12 @@
   },
   "homepage": "https://github.com/JohnnyEstilles/must-sinon",
   "devDependencies": {
-    "eslint": "^0.23.0",
-    "istanbul": "^0.3.15",
+    "eslint": "^0.24.0",
+    "istanbul": "^0.3.16",
     "mocha": "^2.2.5",
     "must": "^0.13.0-beta2",
     "pre-commit": "^1.0.10",
-    "sinon": "^1.15.3"
+    "sinon": "^1.15.4"
   },
   "dependencies": {
     "oolong": "^1.12.0"
