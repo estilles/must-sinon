@@ -125,7 +125,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if not called', function() {
           this.spy.must.not.have.been.called();
@@ -135,6 +135,21 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.called();
+          }).bind(this).must.throw(/not have been called/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called', function() {
+          this.spy.must.have.never.been.called();
+        });
+
+        it('must fail if called', function() {
+          this.spy();
+          (function() {
+            this.spy.must.have.never.been.called();
           }).bind(this).must.throw(/not have been called/);
         });
 
@@ -312,7 +327,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if not called with args', function() {
           this.spy(4, 5, 6);
@@ -323,6 +338,22 @@ describe('must-sinon', function() {
           this.spy(1, 2, 3);
           (function() {
             this.spy.must.not.have.been.calledWith(1, 2, 3);
+          }).bind(this).must.throw(/not have been called with/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called with args', function() {
+          this.spy(4, 5, 6);
+          this.spy.must.have.never.been.calledWith(1, 2, 3);
+        });
+
+        it('must fail if called with args', function() {
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.have.never.been.calledWith(1, 2, 3);
           }).bind(this).must.throw(/not have been called with/);
         });
 
@@ -389,7 +420,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if not called with exact args', function() {
           this.spy(1, 2, 3, 4);
@@ -400,6 +431,22 @@ describe('must-sinon', function() {
           this.spy(1, 2, 3);
           (function() {
             this.spy.must.not.have.been.calledWithExactly(1, 2, 3);
+          }).bind(this).must.throw(/not have been called with exactly/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called with exact args', function() {
+          this.spy(1, 2, 3, 4);
+          this.spy.must.have.never.been.calledWithExactly(1, 2, 3);
+        });
+
+        it('must fail if called with exact args', function() {
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.have.never.been.calledWithExactly(1, 2, 3);
           }).bind(this).must.throw(/not have been called with exactly/);
         });
 
@@ -560,7 +607,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if not called on target object', function() {
           this.spy.must.not.have.been.calledOn(this);
@@ -570,6 +617,21 @@ describe('must-sinon', function() {
           this.spy();
           (function() {
             this.spy.must.not.have.been.calledOn(this);
+          }).bind(this).must.throw(/not have been called on/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called on target object', function() {
+          this.spy.must.have.never.been.calledOn(this);
+        });
+
+        it('must fail if called on target object', function() {
+          this.spy();
+          (function() {
+            this.spy.must.have.never.been.calledOn(this);
           }).bind(this).must.throw(/not have been called on/);
         });
 
@@ -635,7 +697,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if not called on target object', function() {
           this.spy.must.not.have.been.calledWithNew();
@@ -646,6 +708,22 @@ describe('must-sinon', function() {
           this.instance = new Spy();
           (function() {
             this.spy.must.not.have.been.calledWithNew();
+          }).bind(this).must.throw(/not have been called with "new"/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called on target object', function() {
+          this.spy.must.have.never.been.calledWithNew();
+        });
+
+        it('must fail if called on target object', function() {
+          var Spy = this.spy;
+          this.instance = new Spy();
+          (function() {
+            this.spy.must.have.never.been.calledWithNew();
           }).bind(this).must.throw(/not have been called with "new"/);
         });
 
@@ -721,7 +799,7 @@ describe('must-sinon', function() {
 
       });
 
-      describe('negative assertion', function() {
+      describe('negative assertion (with not)', function() {
 
         it('must pass if doesn\'t return specified value', function() {
           this.stub.returns('BAD');
@@ -734,6 +812,24 @@ describe('must-sinon', function() {
           this.stub();
           (function() {
             this.stub.must.not.have.returned('OK');
+          }).bind(this).must.throw(/not have returned/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if doesn\'t return specified value', function() {
+          this.stub.returns('BAD');
+          this.stub();
+          this.stub.must.have.never.returned('OK');
+        });
+
+        it('must fail if returns specified value', function() {
+          this.stub.returns('OK');
+          this.stub();
+          (function() {
+            this.stub.must.have.never.returned('OK');
           }).bind(this).must.throw(/not have returned/);
         });
 
