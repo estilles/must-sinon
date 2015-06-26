@@ -10,6 +10,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Matchers](#matchers)
+- [Passthrough Helpers](#passthrough)
 - [Unit Testing](#unit-testing)
 - [License](#license)
 
@@ -69,6 +70,16 @@ calledWithNew | `Constructor.must.have.been.calledWithNew()`
 alwaysCalledWithNew | `Constructor.must.have.been.alwaysCalledWithNew()`
 returned | `stub.must.have.returned('OK')`
 alwaysReturned | `stub.must.have.alwaysReturned('OK')`
+
+[Back to Top](#top)
+
+<a name="passthrough"></a>
+## Passthrough Helpers
+
+Helper | Type | Usage
+--- | --- | ---
+been | Passthrough | `spy.must.have.been.called()`
+never | Negator | `spy.must.have.never.been.called()`
 
 [Back to Top](#top)
 
