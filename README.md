@@ -4,13 +4,13 @@
 [![Code Climate][gpa-badge]][codeclimate-url]
 [![Test Coverage][coverage-badge]][codeclimate-url]
 
-**must-sinon** adds [SinonJS][sinon-url] related matchers to [Must.js][must-url].
+**must-sinon** adds [SinonJS][sinon-url] related assertion matchers to [Must.js][must-url].
 
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Matchers](#matchers)
-- [Passthrough Helpers](#passthrough)
+- [Assertion Matchers](#matchers)
+- [Chainable Properties](#properties)
 - [Unit Testing](#unit-testing)
 - [License](#license)
 
@@ -47,7 +47,9 @@ mustSinon(must);
 [Back to Top](#top)
 
 <a name="matchers"></a>
-## Matchers
+
+## Assertion Matchers
+**must-sinon** adds the following assertion matchers to Must.js.
 
 Matcher | Usage
 --- | ---
@@ -73,13 +75,14 @@ alwaysReturned | `stub.must.have.alwaysReturned('OK')`
 
 [Back to Top](#top)
 
-<a name="passthrough"></a>
-## Passthrough Helpers
+<a name="properties"></a>
+## Chainable Properties
+**must-sinon** adds the following chainable properties to Must.js.
 
 Helper | Type | Usage
 --- | --- | ---
 been | Passthrough | `spy.must.have.been.called()`
-never | Negator | `spy.must.have.never.been.called()`
+never | Passthrough Negator | `spy.must.have.never.been.called()`
 
 [Back to Top](#top)
 
