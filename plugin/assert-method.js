@@ -1,5 +1,4 @@
 /*eslint strict:0*/
-//'use strict'
 
 var format = require('util').format;
 var formatMessage = require('./format-message');

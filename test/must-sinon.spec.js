@@ -1,4 +1,4 @@
-'use strict';
+/*eslint strict:0*/
 
 var must = require('must');
 var sinon = require('sinon');
