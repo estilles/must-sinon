@@ -4,8 +4,8 @@
 var check = require('./check');
 
 var defineGetter = require('oolong').defineGetter;
-var lookupGetter = require('oolong').lookupGetter;
 var definePassthrough = require('./define-passthrough');
+var defineSynonym = require('./define-synonym');
 
 var assertProp = require('./assert-prop');
 var assertPropValue = require('./assert-prop-value');
@@ -37,8 +37,14 @@ function mustSinon(Must) {
     this.assert(check.isStub(this.actual), 'be a sinon stub');
   };
 
+  defineGetter(Must.prototype, 'always', function() {
+    var self = Object.create(this);
+    self.__sinonAlways = true;
+    return self;
+  });
+
   definePassthrough(Must, 'been');
-  defineGetter(Must.prototype, 'never', lookupGetter(Must.prototype, 'not'));
+  defineSynonym(Must, 'never', 'not');
 
   /**
   * Asserts if {actual} was called at least once
@@ -99,7 +105,6 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledOn', 'have been called on %s');
-  assertMethod(Must, 'alwaysCalledOn', 'have always been called on %s');
 
   /**
   * Asserts if {actual} was called with {arguments}
@@ -108,7 +113,6 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledWith', 'have been called with %s');
-  assertMethod(Must, 'alwaysCalledWith', 'have always been called with %s');
 
   /**
   * Asserts if {actual} was called exactly with {arguments}
@@ -117,8 +121,6 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledWithExactly', 'have been called with exactly %s');
-  assertMethod(Must, 'alwaysCalledWithExactly',
-    'have always been called with exactly %s');
 
   /**
   * Asserts if {actual} was called exactly with "new"
@@ -126,8 +128,6 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'calledWithNew', 'have been called with "new"');
-  assertMethod(Must, 'alwaysCalledWithNew',
-    'have always been called with "new"');
 
   /**
   * Asserts if {actual} returned {value}
@@ -136,7 +136,6 @@ function mustSinon(Must) {
   * @access public
   */
   assertMethod(Must, 'returned', 'have returned %s');
-  assertMethod(Must, 'alwaysReturned', 'have always returned %s');
 }
 
 module.exports = mustSinon;
