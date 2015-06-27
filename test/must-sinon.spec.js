@@ -361,47 +361,6 @@ describe('must-sinon', function() {
 
     });
 
-    describe('#alwaysCalledWith', function() {
-
-      describe('positive assertion', function() {
-
-        it('must pass if always called with same args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3);
-          this.spy.must.have.been.alwaysCalledWith(1, 2, 3);
-        });
-
-        it('must fail if not always called with same args', function() {
-          this.spy(1, 2, 3);
-          this.spy(4, 5, 6);
-          (function() {
-            this.spy.must.have.been.alwaysCalledWith(1, 2, 3);
-          }).bind(this).must.throw(/have always been called with/);
-        });
-
-      });
-
-      describe('negative assertion', function() {
-
-        it('must pass if not always called with same args', function() {
-          this.spy(1, 2, 3);
-          this.spy(4, 5, 6);
-          this.spy.must.not.have.been.alwaysCalledWith(1, 2, 3);
-        });
-
-        it('must fail if always called with same args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3);
-          (function() {
-            this.spy.must.not.have.been.alwaysCalledWith(1, 2, 3);
-          }).bind(this).must.throw(/not have always been called with/);
-        });
-
-      });
-
-    });
-
     describe('#calledWithExactly', function() {
 
       describe('positive assertion', function() {
@@ -448,46 +407,6 @@ describe('must-sinon', function() {
           (function() {
             this.spy.must.have.never.been.calledWithExactly(1, 2, 3);
           }).bind(this).must.throw(/not have been called with exactly/);
-        });
-
-      });
-
-    });
-
-    describe('#alwaysCalledWithExactly', function() {
-
-      describe('positive assertion', function() {
-
-        it('must pass if always called with exact args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3);
-          this.spy.must.have.been.alwaysCalledWithExactly(1, 2, 3);
-        });
-
-        it('must fail if not always called with exact args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3, 4);
-          (function() {
-            this.spy.must.have.been.alwaysCalledWithExactly(1, 2, 3);
-          }).bind(this).must.throw(/have always been called with exactly/);
-        });
-
-      });
-
-      describe('negative assertion', function() {
-
-        it('must pass if not always called with exact args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3, 4);
-          this.spy.must.not.have.been.alwaysCalledWithExactly(1, 2, 3);
-        });
-
-        it('must fail if always called with exact args', function() {
-          this.spy(1, 2, 3);
-          this.spy(1, 2, 3);
-          (function() {
-            this.spy.must.not.have.been.alwaysCalledWithExactly(1, 2, 3);
-          }).bind(this).must.throw(/not have always been called with exactly/);
         });
 
       });
@@ -639,46 +558,6 @@ describe('must-sinon', function() {
 
     });
 
-    describe('#alwaysCalledOn', function() {
-
-      describe('positive assertion', function() {
-
-        it('must pass if always called on target object', function() {
-          this.spy();
-          this.spy.must.have.been.alwaysCalledOn(this);
-        });
-
-        it('must fail if not aways called on target object', function() {
-          var other = {};
-          this.spy();
-          this.spy.call(other);
-          (function() {
-            this.spy.must.have.been.alwaysCalledOn(this);
-          }).bind(this).must.throw(/have always been called on/);
-        });
-
-      });
-
-      describe('negative assertion', function() {
-
-        it('must pass if not called on target object', function() {
-          var other = {};
-          this.spy();
-          this.spy.call(other);
-          this.spy.must.not.have.been.alwaysCalledOn(this);
-        });
-
-        it('must fail if called on target object', function() {
-          this.spy();
-          (function() {
-            this.spy.must.not.have.been.alwaysCalledOn(this);
-          }).bind(this).must.throw(/not have always been called on/);
-        });
-
-      });
-
-    });
-
     describe('#calledWithNew', function() {
 
       describe('positive assertion', function() {
@@ -725,50 +604,6 @@ describe('must-sinon', function() {
           (function() {
             this.spy.must.have.never.been.calledWithNew();
           }).bind(this).must.throw(/not have been called with "new"/);
-        });
-
-      });
-
-    });
-
-    describe('#alwaysCalledWithNew', function() {
-
-      describe('positive assertion', function() {
-
-        it('must pass if always called on with "new"', function() {
-          var Spy = this.spy;
-          this.instance = new Spy();
-          this.instance = new Spy();
-          this.spy.must.have.been.alwaysCalledWithNew();
-        });
-
-        it('must fail if not always called with "new"', function() {
-          var Spy = this.spy;
-          this.spy();
-          this.instance = new Spy();
-          (function() {
-            this.spy.must.have.been.alwaysCalledWithNew();
-          }).bind(this).must.throw(/have always been called with "new"/);
-        });
-
-      });
-
-      describe('negative assertion', function() {
-        it('must pass if not always called on "new"', function() {
-          var Spy = this.spy;
-          this.spy();
-          this.instance = new Spy();
-
-          this.spy.must.not.have.been.alwaysCalledWithNew();
-        });
-
-        it('must fail if always called on "new"', function() {
-          var Spy = this.spy;
-          this.instance = new Spy();
-          this.instance = new Spy();
-          (function() {
-            this.spy.must.not.have.been.alwaysCalledWithNew();
-          }).bind(this).must.throw(/not have always been called with "new"/);
         });
 
       });
@@ -837,7 +672,176 @@ describe('must-sinon', function() {
 
     });
 
-    describe('#alwaysReturned', function() {
+  });
+
+  describe('#always', function() {
+
+    describe('#calledWith', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy.must.have.always.been.calledWith(1, 2, 3);
+        });
+
+        it('must fail if not always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(4, 5, 6);
+          (function() {
+            this.spy.must.have.always.been.calledWith(1, 2, 3);
+          }).bind(this).must.throw(/have always been called with/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(4, 5, 6);
+          this.spy.must.not.have.always.been.calledWith(1, 2, 3);
+        });
+
+        it('must fail if always called with same args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.not.have.always.been.calledWith(1, 2, 3);
+          }).bind(this).must.throw(/not have always been called with/);
+        });
+
+      });
+
+    });
+
+    describe('#calledWithExactly', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          this.spy.must.have.always.been.calledWithExactly(1, 2, 3);
+        });
+
+        it('must fail if not always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3, 4);
+          (function() {
+            this.spy.must.have.always.been.calledWithExactly(1, 2, 3);
+          }).bind(this).must.throw(/have always been called with exactly/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3, 4);
+          this.spy.must.not.have.always.been.calledWithExactly(1, 2, 3);
+        });
+
+        it('must fail if always called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.not.have.always.been.calledWithExactly(1, 2, 3);
+          }).bind(this).must.throw(/not have always been called with exactly/);
+        });
+
+      });
+
+    });
+
+    describe('#calledOn', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called on target object', function() {
+          this.spy();
+          this.spy.must.have.always.been.calledOn(this);
+        });
+
+        it('must fail if not aways called on target object', function() {
+          var other = {};
+          this.spy();
+          this.spy.call(other);
+          (function() {
+            this.spy.must.have.always.been.calledOn(this);
+          }).bind(this).must.throw(/have always been called on/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+
+        it('must pass if not called on target object', function() {
+          var other = {};
+          this.spy();
+          this.spy.call(other);
+          this.spy.must.not.have.always.been.calledOn(this);
+        });
+
+        it('must fail if called on target object', function() {
+          this.spy();
+          (function() {
+            this.spy.must.not.have.always.been.calledOn(this);
+          }).bind(this).must.throw(/not have always been called on/);
+        });
+
+      });
+
+    });
+
+    describe('#calledWithNew', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if always called on with "new"', function() {
+          var Spy = this.spy;
+          this.instance = new Spy();
+          this.instance = new Spy();
+          this.spy.must.have.always.been.calledWithNew();
+        });
+
+        it('must fail if not always called with "new"', function() {
+          var Spy = this.spy;
+          this.spy();
+          this.instance = new Spy();
+          (function() {
+            this.spy.must.have.always.been.calledWithNew();
+          }).bind(this).must.throw(/have always been called with "new"/);
+        });
+
+      });
+
+      describe('negative assertion', function() {
+        it('must pass if not always called on "new"', function() {
+          var Spy = this.spy;
+          this.spy();
+          this.instance = new Spy();
+
+          this.spy.must.not.have.always.been.calledWithNew();
+        });
+
+        it('must fail if always called on "new"', function() {
+          var Spy = this.spy;
+          this.instance = new Spy();
+          this.instance = new Spy();
+          (function() {
+            this.spy.must.not.have.always.been.calledWithNew();
+          }).bind(this).must.throw(/not have always been called with "new"/);
+        });
+
+      });
+
+    });
+
+    describe('#returned', function() {
 
       describe('positive assertion', function() {
 
@@ -846,7 +850,7 @@ describe('must-sinon', function() {
           this.stub.onCall(1).returns('OK');
           this.stub();
           this.stub();
-          this.stub.must.have.alwaysReturned('OK');
+          this.stub.must.have.always.returned('OK');
         });
 
         it('must fail if doesn\'t always return specified value', function() {
@@ -855,7 +859,7 @@ describe('must-sinon', function() {
           this.stub();
           this.stub();
           (function() {
-            this.stub.must.have.alwaysReturned('OK');
+            this.stub.must.have.always.returned('OK');
           }).bind(this).must.throw(/have always returned/);
         });
 
@@ -868,7 +872,7 @@ describe('must-sinon', function() {
           this.stub.onCall(1).returns('BAD');
           this.stub();
           this.stub();
-          this.stub.must.not.have.alwaysReturned('OK');
+          this.stub.must.not.have.always.returned('OK');
         });
 
         it('must fail if always returns specified value', function() {
@@ -877,10 +881,56 @@ describe('must-sinon', function() {
           this.stub();
           this.stub();
           (function() {
-            this.stub.must.not.have.alwaysReturned('OK');
+            this.stub.must.not.have.always.returned('OK');
           }).bind(this).must.throw(/not have always returned/);
         });
 
+      });
+
+    });
+
+    describe('with non-"always" Sinon methods', function() {
+
+      it('must throw an error when called with "called"', function() {
+        (function() {
+          this.spy.must.have.always.been.called();
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "calledOnce"', function() {
+        (function() {
+          this.spy.must.have.always.been.calledOnce();
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "calledTwice"', function() {
+        (function() {
+          this.spy.must.have.always.been.calledTwice();
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "calledTrice"', function() {
+        (function() {
+          this.spy.must.have.always.been.calledThrice();
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "callCount"', function() {
+        (function() {
+          this.spy.must.always.have.callCount();
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "calledBefore"', function() {
+        (function() {
+          this.spy.must.have.always.been.calledBefore(this.stub);
+        }).bind(this).must.throw(/is not a Sinon matcher/);
+      });
+
+      it('must throw an error when called with "calledAfter"', function() {
+        (function() {
+          this.spy.must.have.always.been.calledAfter(this.stub);
+        }).bind(this).must.throw(/is not a Sinon matcher/);
       });
 
     });
