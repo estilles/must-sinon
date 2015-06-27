@@ -4,8 +4,8 @@
 var check = require('./check');
 
 var defineGetter = require('oolong').defineGetter;
-var lookupGetter = require('oolong').lookupGetter;
 var definePassthrough = require('./define-passthrough');
+var defineSynonym = require('./define-synonym');
 
 var assertProp = require('./assert-prop');
 var assertPropValue = require('./assert-prop-value');
@@ -38,7 +38,7 @@ function mustSinon(Must) {
   };
 
   definePassthrough(Must, 'been');
-  defineGetter(Must.prototype, 'never', lookupGetter(Must.prototype, 'not'));
+  defineSynonym(Must, 'never', 'not');
 
   /**
   * Asserts if {actual} was called at least once
