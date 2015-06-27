@@ -78,7 +78,7 @@ Helper | Type | Usage
 --- | --- | ---
 been | Passthrough | `spy.must.have.been.called()`
 never | Passthrough Negator | `spy.must.have.never.been.called()`
-always | Passthrough Modifier | `spy.must.have.always.been.calledWith(1, 2)`
+always | Passthrough Modifier | `spy.must.have.always.been.calledWith(1, 2)`<br>`spy.must.have.always.been.calledWithExactly(1, 2)`<br>`spy.must.have.always.been.calledOn(1, 2)`<br>`spy.must.have.always.been.calledWithNew(1, 2)`<br>`spy.must.have.always.returned(1)`
 
 [Back to Top](#top)
 
