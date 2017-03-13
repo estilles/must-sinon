@@ -413,6 +413,58 @@ describe('must-sinon', function() {
 
     });
 
+    describe('#calledWithMatch', function() {
+
+      describe('positive assertion', function() {
+
+        it('must pass if called with exact args', function() {
+          this.spy(1, 2, 3);
+          this.spy.must.have.been.calledWithMatch(1, 2);
+        });
+
+        it('must fail if not called with exact args', function() {
+          this.spy(1, 2, 3, 4);
+          (function() {
+            this.spy.must.have.been.calledWithMatch(2, 3);
+          }).bind(this).must.throw(/have been called with match/);
+        });
+
+      });
+
+      describe('negative assertion (with not)', function() {
+
+        it('must pass if not called with exact args', function() {
+          this.spy(1, 2, 3, 4);
+          this.spy.must.not.have.been.calledWithMatch(2, 3);
+        });
+
+        it('must fail if called with exact args', function() {
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.not.have.been.calledWithMatch(1, 2);
+          }).bind(this).must.throw(/not have been called with match/);
+        });
+
+      });
+
+      describe('negative assertion (with never)', function() {
+
+        it('must pass if not called with exact args', function() {
+          this.spy(1, 2, 3, 4);
+          this.spy.must.have.never.been.calledWithMatch(2, 3);
+        });
+
+        it('must fail if called with exact args', function() {
+          this.spy(1, 2, 3);
+          (function() {
+            this.spy.must.have.never.been.calledWithMatch(1, 2);
+          }).bind(this).must.throw(/not have been called with match/);
+        });
+
+      });
+
+    });
+
   });
 
   describe('detect call order', function() {

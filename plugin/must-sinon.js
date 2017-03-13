@@ -122,6 +122,14 @@ function mustSinon(Must) {
   assertMethod(Must, 'calledWithExactly', 'have been called with exactly %s');
 
   /**
+  * Asserts if {actual} was called with match {arguments}
+  * @method calledWithMatch
+  * @param {any} arguments - list of arguments spy/stub was called with
+  * @access public
+  */
+  assertMethod(Must, 'calledWithMatch', 'have been called with match %s');
+
+  /**
   * Asserts if {actual} was called exactly with "new"
   * @method calledWithNew
   * @access public
